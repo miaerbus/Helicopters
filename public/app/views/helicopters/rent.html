@@ -1,0 +1,34 @@
+<div class="container">
+
+  <h1 class="my-4 text-center text-lg-left">Rent Helicopter {{ helicopter.name }}</h1>
+
+	<form ng-submit="rent.rentHelicopter(rentData);">
+
+		<!-- Name -->
+		<label>First and last name / Organisation:</label>
+		<input class="form-control" type="text" name="name" placeholder="Please enter your name or the name of the organisation" ng-model="rent.rentData.name">
+
+    <!-- Duration -->
+    <label>Duration (in seconds):</label>
+    <input class="form-control" type="number" name="duration" placeholder="Please enter duration of your rent" ng-model="rent.rentData.duration">
+
+    <br>
+    <button class="btn btn-primary" type="submit">Rent</button>
+  </form>
+
+
+  <div class="jumbotron text-center" ng-show="rent.loading">
+    <span class="glyphicon glyphicon-repeat spinner"></span>
+    <p>Loading...</p>
+  </div>
+
+
+  <div class="row show-hide-message" ng-show="rent.successMsg">
+    <div class="alert alert-success">{{ rent.successMsg }}</div>
+  </div>
+
+  <div class="row show-hide-message" ng-show="rent.errorMsg">
+    <div class="alert alert-danger">{{ rent.errorMsg }}</div>
+  </div>
+
+</div>
