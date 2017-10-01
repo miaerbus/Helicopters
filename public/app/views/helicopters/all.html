@@ -5,11 +5,13 @@
 
   <div class="row text-center text-lg-left">
 
-    <div class="col-lg-3 col-md-4 col-xs-6" ng-repeat="helicopter in helicopters">
+    <div class="col-lg-3 col-md-4 col-xs-6" ng-repeat="helicopter in helicopter.helicopters">
       <h3>{{ helicopter.name }}</h3>
       <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-      {{ helicopter.power }}, {{ helicopter.speed }}
-      <a href="/rent">Rent</a> | <a href="/view">View</a> | <a href="/cancel">Cancel</a>
+      <!--{{ helicopter.power }}, {{ helicopter.speed }}-->
+      <div class="text-center">
+        <a href="/view">View</a> | <a href="/rent">Rent</a> | <a href="/cancel">Cancel</a>
+      </div>
     </div>
 
   </div>

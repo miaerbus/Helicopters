@@ -3,8 +3,7 @@ var Helicopter = require('../models/helicopter');
 
 module.exports = function(router) {
 
-	// RENT ROUTE
-	// http://localhost:8888/rents in POSTMAN
+	// CREATE RENT --> http://localhost:8888/rents in POSTMAN
 	router.post('/rents', function(req, res) {
 		var rent = new Rent();
 		rent.name = req.body.name;
@@ -23,6 +22,7 @@ module.exports = function(router) {
 		}
 	});
 
+	// CREATE HELICOPTER
 	router.post('/helicopters', function(req, res) {
 		//res.send('testing helicopters route');
 		var helicopter = new Helicopter();
@@ -45,27 +45,19 @@ module.exports = function(router) {
 		}
 	});
 
+	// GET ALL HELICOPTERS
 	router.get('/helicopters', function(req, res) {
 		Helicopter.find({}, function(err, helicopters) {
-			//console.log('HERE: ' + helicopters);
 			res.json( { success: true, helicopters: helicopters });
+		});		
+	});
 
-			/*if (err) throw err;
-			console.log('decoded: ' + req.decoded);
-			Helicopter.findOne({ name: req.decoded.name }, function(err, mainHelicopter) {
-				if (err) throw err;
-				if (!mainHelicopter) {
-					res.json( { success: false, message: 'No helicopter found' });
-				} else {
-					if (!helicopters) {
-						res.json( { success: false, message: 'No helicopters found' });
-					} else {
-						
-					}
-				}
-			});*/
-		});
-		
+	// GET HELICOPTER BY ID
+	router.get('/:helicopterId', function(req, res, next) {
+  	Helicopter.findById(req.params.id, function (err, post) {
+    	if (err) return next(err);
+    	res.json(post);
+	  });
 	});
 	
 	return router;

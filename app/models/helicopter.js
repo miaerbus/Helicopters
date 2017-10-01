@@ -10,9 +10,9 @@ var HelicopterSchema = new Schema({
   isAvailable: { type: Boolean, default: false }
 });
 
-HelicopterSchema.pre('save', function() {
+HelicopterSchema.pre('save', function(next) {
   var helicopter = this;
-  //next();
+  next();
 });
 
 module.exports = mongoose.model('Helicopter', HelicopterSchema);

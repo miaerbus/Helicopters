@@ -13,22 +13,17 @@ angular.module('rentControllers', ['rentServices'])
     Rent.create(app.rentData).then(function(data) {
       
       if (data.data.success) {  
-        
-        // Don't show loading banner on click
         app.loading = false;
-        
-        // Create Success Message
         app.successMsg = data.data.message + '... Redirecting';
-        
-        // Redirect to Home page with 2 second delay
+        // Redirect to home page with 2 second delay
         $timeout(function() {
           $location.path('/');
         }, 2000);
+
+        console.log("DATA:" + data.);
       
       } else {
         app.loading = false;
-        
-        // Create Error Message
         app.errorMsg = data.data.message;
       }
     });

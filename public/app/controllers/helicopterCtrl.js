@@ -1,6 +1,6 @@
 angular.module('helicopterController', [])
 
-.controller('helicopterCtrl', function(Helicopter, $scope) {
+.controller('helicopterCtrl', function(Helicopter) {
   var app = this;
 
   app.loading = true;
@@ -9,8 +9,6 @@ angular.module('helicopterController', [])
   Helicopter.getHelicopters().then(function(data) {
     if (data.data.success) {
       app.helicopters = data.data.helicopters;
-      $scope.helicopters = app.helicopters;
-      //console.log(app.helicopters);
       app.loading = false;
 
     } else {
