@@ -19,8 +19,6 @@ angular.module('rentControllers', ['rentServices'])
         $timeout(function() {
           $location.path('/');
         }, 2000);
-
-        console.log("DATA:" + data.);
       
       } else {
         app.loading = false;

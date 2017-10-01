@@ -1,4 +1,4 @@
-angular.module('helicopterController', [])
+angular.module('helicopterController', ['helicopterServices'])
 
 .controller('helicopterCtrl', function(Helicopter) {
   var app = this;
