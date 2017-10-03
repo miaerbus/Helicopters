@@ -10,11 +10,14 @@
       <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
       <!--{{ helicopter.power }}, {{ helicopter.speed }}-->
       <div class="text-center">
-        <a href="/view">View</a> | <a href="/rent">Rent</a> | <a href="/cancel">Cancel</a>
+        <a href="/{{ helicopter._id }}">
+          <button type="button" ng-click="helicopter.getHelicopter(helicopter._id)" class="btn btn-primary">View</button>
+        </a href="">
+        <a href="/rent">
+          <button type="button" class="btn btn-info">Rent</button>
+        </a>
+        <button type="button" class="btn btn-danger">Cancel</button>
       </div>
     </div>
-
   </div>
-
-</div>
-<!-- /.container -->
+</div> <!-- /.container -->

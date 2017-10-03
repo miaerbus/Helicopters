@@ -3,7 +3,7 @@ var Helicopter = require('../models/helicopter');
 
 module.exports = function(router) {
 
-	// CREATE RENT --> http://localhost:8888/rents in POSTMAN
+	// CREATE RENT
 	router.post('/rents', function(req, res) {
 		var rent = new Rent();
 		rent.name = req.body.name;
@@ -16,15 +16,21 @@ module.exports = function(router) {
 				if (err) {
 					res.json({ success: false, message: 'Name already exists!' });
 				} else {
-					res.json({ success: true, message: 'Rent successful'});
+					res.json({ success: true, message: 'Rent added'});
 				}
 			});
 		}
 	});
 
+  // GET ALL RENTS
+  router.get('/rents', function(req, res) {
+    Rent.find({}, function(err, rents) {
+      res.json({ success: true, rents: rents });
+    });   
+  });
+
 	// CREATE HELICOPTER
 	router.post('/helicopters', function(req, res) {
-		//res.send('testing helicopters route');
 		var helicopter = new Helicopter();
 		helicopter.picture = req.body.picture;
 		helicopter.name = req.body.name;
@@ -39,7 +45,7 @@ module.exports = function(router) {
 				if (err) {
 					res.json({ success: false, message: 'Name already exists!' });
 				} else {
-					res.json({ success: true, message: 'Helicopter successful'});
+					res.json({ success: true, message: 'Helicopter added'});
 				}
 			});
 		}
@@ -48,16 +54,16 @@ module.exports = function(router) {
 	// GET ALL HELICOPTERS
 	router.get('/helicopters', function(req, res) {
 		Helicopter.find({}, function(err, helicopters) {
-			res.json( { success: true, helicopters: helicopters });
+			res.json({ success: true, helicopters: helicopters });
 		});		
 	});
 
 	// GET HELICOPTER BY ID
-	router.get('/:helicopterId', function(req, res, next) {
-  	Helicopter.findById(req.params.id, function (err, post) {
-    	if (err) return next(err);
-    	res.json(post);
-	  });
+	router.get('/helicopters/:helicopterId', function(req, res, next) {
+    Helicopter.findOne({ _id: req.params.helicopterId }, function (err, helicopter) {
+      if (err) return res.send(err)
+      res.json({ success: true, helicopter: helicopter });
+    });
 	});
 	
 	return router;
