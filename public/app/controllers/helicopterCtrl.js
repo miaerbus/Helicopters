@@ -16,4 +16,5 @@ angular.module('helicopterController', ['helicopterServices'])
       app.loading = false;
     }
   });
+
 });

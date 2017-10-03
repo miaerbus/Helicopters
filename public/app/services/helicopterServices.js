@@ -7,5 +7,9 @@ angular.module('helicopterServices', [])
     return $http.get('/api/helicopters')
   }
 
+  helicopterFactory.getHelicopter = function() {
+    return $http.get('/api/helicopters/:helicopterId')
+  }
+  
   return helicopterFactory;
 });
