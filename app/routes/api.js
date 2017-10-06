@@ -1,6 +1,5 @@
 var Rent = require('../models/rent');
 var Helicopter = require('../models/helicopter');
-var mongoose = require('mongoose');
 
 module.exports = function(router) {
 
@@ -61,15 +60,10 @@ module.exports = function(router) {
 
   // GET HELICOPTER BY ID
   router.get('/helicopters/:helicopterId', function(req, res) {
-    //console.log( req.params.helicopterId.toString() );
-
     Helicopter.findOne({ _id: req.params.helicopterId }, function (err, helicopter) {
-    //var id = mongoose.Types.ObjectId(req.params.helicopterId);
-    //Helicopter.findById(id, function (err, helicopter) {
       if (err) return res.send(err)
       res.json({ success: true, helicopter: helicopter });
     });
-    
   });
   
   return router;

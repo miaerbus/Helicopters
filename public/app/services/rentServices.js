@@ -4,6 +4,7 @@ angular.module('rentServices', [])
   rentFactory = {};
 
   rentFactory.create = function(rentData) {
+    console.log(rentData);
     return $http.post('/api/rents', rentData)
   }
 

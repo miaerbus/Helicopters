@@ -6,15 +6,12 @@
   <div class="row text-center text-lg-left">
 
     <div class="col-lg-3 col-md-4 col-xs-6" ng-repeat="helicopter in vm.helicopters">
-      <h3>{{ helicopter.name }}</h3>
-      <!-- {{ helicopter.dudify() }} -->
-      <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-      <!--{{ helicopter.power }}, {{ helicopter.speed }}-->
-      <div class="text-center">
-        <a href="/{{ helicopter._id }}"> <!-- ng-click="helicopter.getHelicopter(helicopter._id)" -->
-          <button type="button" class="btn btn-primary">View</button>
+      <a href="/{{ helicopter._id }}">
+        <h3>{{ helicopter.name | uppercase }}</h3>
+        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+        <div class="text-center">
         </a>
-        <a href="/rent">
+        <a href="/rent" ng-submit="rent.rentHelicopter(rentData);">
           <button type="button" class="btn btn-info">Rent</button>
         </a>
         <a href="/cancel">

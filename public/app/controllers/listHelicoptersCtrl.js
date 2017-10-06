@@ -5,7 +5,6 @@ angular.module('listHelicoptersController', ['helicopterServices'])
 
   vm.loading = true;
   vm.errorMsg = false;
-  vm.helicopters = null;
 
   Helicopter.getHelicopters().then(function(data) {
     //console.log(data);

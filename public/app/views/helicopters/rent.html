@@ -2,9 +2,8 @@
 
   <h1 class="my-4 text-center text-lg-left">Rent Helicopter</h1>
 
-  <form ng-submit="rent.rentHelicopter(rentData);">
+  <form name="rentForm" ng-submit="rent.rentHelicopter(rentData);">
 
-    {{ rent.loading }}
     <!-- Name -->
     <label>First and last name / Organisation:</label>
     <input class="form-control" type="text" name="name" placeholder="Please enter your name or the name of the organisation" ng-model="rent.rentData.name">
@@ -14,13 +13,21 @@
     <input class="form-control" type="number" name="duration" placeholder="Please enter duration of your rent" ng-model="rent.rentData.duration">
 
     <label>Price:</label> 
+    <div ng-if="rent.rentData.duration >= 15">
+      <p ng-model="rent.rentData.price">{{ rent.rentData.price = rent.rentData.duration*25 }}</p>
     <!--{{ if (helicopter.duration > 15)
-        helicopter.price = helicopter.duration*25;
-      else
+        helicopter.price = helicopter.duration*25;-->
+    </div>
+    <div ng-elseif="rent.rentData.duration < 15">
+      <p ng-model="rent.rentData.price">{{ rent.rentData.price = rent.rentData.duration*20 }}</p>
+      <!--else
         helicopter.price = helicopter.duration*20; }}-->
+    </div>
+    <br>
     <br>
     <button class="btn btn-primary" type="submit">Rent</button>
   </form>
+
 
   <div class="jumbotron text-center" ng-show="rent.loading">
     <span class="glyphicon glyphicon-repeat spinner"></span>

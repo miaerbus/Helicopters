@@ -2,7 +2,6 @@ angular.module('appRoutes', ['ngRoute'])
 
 .config(function($routeProvider, $locationProvider) {
 
-  // when the user types in default location
   $routeProvider
 
   .when('/', {
@@ -11,31 +10,19 @@ angular.module('appRoutes', ['ngRoute'])
     controllerAs: 'vm' // nickname (view model?)
   })
 
+  // doesn't load view if /:helicopterId is before /rent 
+  .when('/rent', {
+    templateUrl: 'app/views/helicopters/rent.html',
+    controller: 'rentCtrl',
+    controllerAs: 'rent'
+  })
+
   .when('/:helicopterId', {
     templateUrl: 'app/views/helicopters/view.html',
     controller: 'helicopterCtrl',
     controllerAs: 'vm'
   })
-
-  .when('/rent', {
-    templateUrl: 'app/views/helicopters/rent.html',
-    controller: 'rentCtrl',
-    controllerAs: 'vm'
-  })
-
-/*.when('/cancel', {
-    templateUrl: 'app/views/helicopters/cancel.html',
-    controller: 'cancelCtrl',
-    controllerAs: 'cancel'
-  })
-
-  .when('/create', {
-    templateUrl: 'app/views/helicopters/create.html',
-    controller: 'createCtrl',
-    controllerAs: 'create'
-  })
-  */
- 
+  
   .otherwise({ redirectTo: '/' });
 
   $locationProvider.html5Mode({

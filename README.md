@@ -1,2 +1,25 @@
 # Helicopters
-Rent helicopters
+Rent helicopters 
+
+## Installation
+
+Clone the repository
+```bash
+$ git clone https://github.com/miaerbus/helicopters.git
+```
+
+Move into the directory
+```bash
+$ cd helicopters
+```
+
+Install the dependencies
+```bash
+$ npm install
+```
+
+Start the server
+```bash
+$ npm start
+```
+The application should run on port 8888. In your browser, just go to [http://localhost:8888](http://localhost:8888)

@@ -3,19 +3,17 @@
 angular.module('rentControllers', ['rentServices'])
 
 .controller('rentCtrl', function($http, $location, $timeout, Rent) {
-  var app = this;
+  var vm = this;
 
-  app.rentHelicopter = null;
-
-  app.rentHelicopter = function(rentData) {
-    app.loading = true;
-    app.errorMsg = false;
+  vm.rentHelicopter = function(rentData) {
+    vm.loading = true;
+    vm.errorMsg = false;
     
-    Rent.create(app.rentData).then(function(data) {
+    Rent.create(vm.rentData).then(function(data) {
       
       if (data.data.success) {  
-        app.loading = false;
-        app.successMsg = data.data.message + '... Redirecting';
+        vm.loading = false;
+        vm.successMsg = data.data.message + '... Redirecting';
 
         // Redirect to home page with 2 second delay
         $timeout(function() {
@@ -23,8 +21,8 @@ angular.module('rentControllers', ['rentServices'])
         }, 2000);
       
       } else {
-        app.loading = false;
-        app.errorMsg = data.data.message;
+        vm.loading = false;
+        vm.errorMsg = data.data.message;
       }
     });
   };

@@ -5,7 +5,6 @@ angular.module('helicopterController', ['helicopterServices'])
 
   vm.loading = true;
   vm.errorMsg = false;
-  vm.helicopter = null;
 
   Helicopter.getHelicopter($routeParams.helicopterId).then(function(data) {
     if (data.data.success) {
