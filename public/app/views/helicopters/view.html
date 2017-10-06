@@ -1,10 +1,15 @@
-<!-- <section data-ng-controller="helicopterController" data-ng-init="helicopter.getHelicopter(helicopter._id)">
-   -->
-<section>
-  <div class="page-header">
-    <!-- <h1>{{ helicopter.getHelicopter(helicopter.id).name }}</h1> -->
-    {{ helicopter.helicopters[0]._id }}
-    {{ helicopter.helicopter }}
+<div class="container" >
+  <h1 class="my-4 text-center text-lg-left">{{ vm.helicopter.name }}</h1>
+  <div class="my-4 row">
+    <div class="col-6">
+      <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+    </div>
+    <div class="col-6">
+      <p>Power: {{ vm.helicopter.power }}</p>
+      <p>Speed: {{ vm.helicopter.speed }}</p>
+      <p>Passengers: {{ vm.helicopter.passengers }}</p>
+      <p>Is available: {{ vm.helicopter.isAvailable }}</p>
+    </div>
+  </div>  
+</div>
 
-  </div>
-</section>

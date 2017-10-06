@@ -1,19 +1,19 @@
 angular.module('helicopterController', ['helicopterServices'])
 
-.controller('helicopterCtrl', function(Helicopter) {
-  var app = this;
+.controller('helicopterCtrl', function($routeParams, Helicopter) {
+  var vm = this;
 
-  app.loading = true;
-  app.errorMsg = false;
+  vm.loading = true;
+  vm.errorMsg = false;
+  vm.helicopter = null;
 
-  Helicopter.getHelicopters().then(function(data) {
+  Helicopter.getHelicopter($routeParams.helicopterId).then(function(data) {
     if (data.data.success) {
-      app.helicopters = data.data.helicopters;
-      app.loading = false;
-
+      vm.helicopter = data.data.helicopter;
+      vm.loading = false;
     } else {
-      app.errorMsg = data.data.message;
-      app.loading = false;
+      vm.errorMsg = data.data.message;
+      vm.loading = false;
     }
   });
 

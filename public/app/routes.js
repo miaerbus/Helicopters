@@ -7,24 +7,23 @@ angular.module('appRoutes', ['ngRoute'])
 
   .when('/', {
     templateUrl: 'app/views/helicopters/all.html',
-    controller: 'helicopterCtrl',
-    controllerAs: 'helicopter' // nickname (view model?)
+    controller: 'listHelicoptersCtrl',
+    controllerAs: 'vm' // nickname (view model?)
   })
 
-/*  .when('/view', {
+  .when('/:helicopterId', {
     templateUrl: 'app/views/helicopters/view.html',
-    controller: 'viewCtrl',
-    controllerAs: 'view'
+    controller: 'helicopterCtrl',
+    controllerAs: 'vm'
   })
 
-  */
   .when('/rent', {
     templateUrl: 'app/views/helicopters/rent.html',
     controller: 'rentCtrl',
-    controllerAs: 'rent'
+    controllerAs: 'vm'
   })
 
-/*  .when('/cancel', {
+/*.when('/cancel', {
     templateUrl: 'app/views/helicopters/cancel.html',
     controller: 'cancelCtrl',
     controllerAs: 'cancel'
@@ -36,6 +35,7 @@ angular.module('appRoutes', ['ngRoute'])
     controllerAs: 'create'
   })
   */
+ 
   .otherwise({ redirectTo: '/' });
 
   $locationProvider.html5Mode({

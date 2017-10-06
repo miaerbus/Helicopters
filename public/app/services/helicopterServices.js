@@ -4,11 +4,11 @@ angular.module('helicopterServices', [])
   helicopterFactory = {};
 
   helicopterFactory.getHelicopters = function() {
-    return $http.get('/api/helicopters')
+    return $http.get('/api/helicopters');
   }
 
-  helicopterFactory.getHelicopter = function() {
-    return $http.get('/api/helicopters/:helicopterId')
+  helicopterFactory.getHelicopter = function(id) {
+    return $http.get('/api/helicopters/' + id);
   }
   
   return helicopterFactory;

@@ -10,6 +10,7 @@ var HelicopterSchema = new Schema({
   isAvailable: { type: Boolean, default: false }
 });
 
+// operations before an object is saved
 HelicopterSchema.pre('save', function(next) {
   var helicopter = this;
   next();

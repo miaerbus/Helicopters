@@ -4,6 +4,7 @@
 
   <form ng-submit="rent.rentHelicopter(rentData);">
 
+    {{ rent.loading }}
     <!-- Name -->
     <label>First and last name / Organisation:</label>
     <input class="form-control" type="text" name="name" placeholder="Please enter your name or the name of the organisation" ng-model="rent.rentData.name">
