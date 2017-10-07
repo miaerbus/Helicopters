@@ -11,11 +11,11 @@
         <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
         <div class="text-center">
         </a>
-        <a href="/rent" ng-submit="rent.rentHelicopter(rentData);">
-          <button type="button" class="btn btn-info">Rent</button>
+        <a href="/rent" ng-show="helicopter.isAvailable">
+          <button type="button" class="btn btn-info" ng-submit="rent.rentHelicopter(rentData);">Rent</button>
         </a>
-        <a href="/cancel">
-          <button type="button" class="btn btn-danger">Cancel</button>
+        <a href="/cancel" ng-show="!helicopter.isAvailable">
+          <button type="button" class="btn btn-danger" ng-submit="rent.rentHelicopter(rentData);">Cancel</button>
         </a>
       </div>
     </div>

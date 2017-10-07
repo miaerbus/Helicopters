@@ -16,18 +16,18 @@ app.use(express.static(__dirname + '/public')); // for serving static files, fro
 app.use('/api', appRoutes); // api for backend routes
 
 mongoose.connect('mongodb://localhost:27017/helicopter', function(err) {
-	if (err) {
-		console.log('Not connected to the DB: ' + err);
-	} else {
-		console.log('Successfully connected to MongoDB');
-	}
+  if (err) {
+    console.log('Not connected to the DB: ' + err);
+  } else {
+    console.log('Successfully connected to MongoDB');
+  }
 });
 
 app.get('*', function(req, res) {
-	res.sendFile(path.join(__dirname + '/public/app/views/index.html'));
+  res.sendFile(path.join(__dirname + '/public/app/views/index.html'));
 });
 
 app.listen(port, function() {
-	console.log('Running the server on port ' + port);
+  console.log('Running the server on port ' + port);
 });
  

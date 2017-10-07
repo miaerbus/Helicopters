@@ -8,15 +8,13 @@
       <p><strong>Power:</strong> {{ vm.helicopter.power }}</p>
       <p><strong>Speed:</strong> {{ vm.helicopter.speed }}</p>
       <p><strong>Passengers:</strong> {{ vm.helicopter.passengers }}</p>
-      <p><strong>Is available:</strong> {{ vm.helicopter.isAvailable }}</p>
       <br>
-      <a href="/rent">
+      <a href="/rent" ng-show="helicopter.isAvailable">
         <button type="button" class="btn btn-info">Rent</button>
       </a>
-      <a href="/cancel">
+      <a href="/cancel" ng-show="!helicopter.isAvailable">
         <button type="button" class="btn btn-danger">Cancel</button>
       </a>
-
     </div>
   </div>  
 </div>

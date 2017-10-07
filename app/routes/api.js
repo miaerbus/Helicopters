@@ -8,6 +8,7 @@ module.exports = function(router) {
     var rent = new Rent();
     rent.name = req.body.name;
     rent.duration = req.body.duration;
+    rent.price = req.body.price;
 
     if (req.body.name == null || req.body.name == '' || req.body.duration == null || req.body.duration == '') {
       res.json({ success: false, message: 'Name and/or duration is missing!' });
@@ -37,6 +38,7 @@ module.exports = function(router) {
     helicopter.power = req.body.power;
     helicopter.passengers = req.body.passengers;
     helicopter.speed = req.body.speed;
+    helicopter.isAvailable = req.body.isAvailable;
 
     if (req.body.name == null || req.body.name == '') {
       res.json({ success: false, message: 'Name is missing!' });

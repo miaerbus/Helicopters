@@ -27,8 +27,9 @@
     <script src="app/routes.js"></script>
     
     <!-- AngularJS Controllers -->
-    <script src="app/controllers/listHelicoptersCtrl.js"></script>
     <script src="app/controllers/helicopterCtrl.js"></script>
+    <script src="app/controllers/listHelicoptersCtrl.js"></script>
+    <script src="app/controllers/createHelicopterCtrl.js"></script>
     <script src="app/controllers/rentCtrl.js"></script>
 
     <!-- AngularJS Services -->
@@ -41,14 +42,14 @@
     <!-- Navigation -->
     <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
       <a class="navbar-brand" href="/">
-        <img class="navbar-brand" src="../../assets/img/logo.jpg" alt="logo" width="180" height="107">
-        Helicopters
+        <img class="navbar-brand img-fluid" src="../../assets/img/logo.jpg" alt="logo" width="180" height="107">
+        <span class="navbar-text">Helicopters</span>
       </a>
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <a class="nav-link" href="/">
-              <button type="button" ng-click="helicopter.create();" class="btn btn-primary">Create New</button>
+              <button type="button" ng-click="helicopter.createHelicopter();" class="btn btn-primary">Create New</button>
             </a>
           </li>
           <li class="nav-item">

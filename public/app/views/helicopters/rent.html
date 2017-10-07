@@ -14,12 +14,12 @@
 
     <label>Price:</label> 
     <div ng-if="rent.rentData.duration >= 15">
-      <p ng-model="rent.rentData.price">{{ rent.rentData.price = rent.rentData.duration*25 }}</p>
+      <p ng-model="rent.rentData.price">>= 15: {{ rent.rentData.price = rent.rentData.duration*25 }}</p>
     <!--{{ if (helicopter.duration > 15)
         helicopter.price = helicopter.duration*25;-->
     </div>
     <div ng-elseif="rent.rentData.duration < 15">
-      <p ng-model="rent.rentData.price">{{ rent.rentData.price = rent.rentData.duration*20 }}</p>
+      <p ng-model="rent.rentData.price">< 15: {{ rent.rentData.price = rent.rentData.duration*20 }}</p>
       <!--else
         helicopter.price = helicopter.duration*20; }}-->
     </div>

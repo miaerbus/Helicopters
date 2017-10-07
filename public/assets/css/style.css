@@ -51,5 +51,16 @@ header .navbar {
 }
 
 .navbar-right {
-  float: right!important;
+  float: right !important;
+}
+
+
+@media only screen and (max-width: 375px) {
+  /*TODO: center banner*/
+}
+
+@media only screen and (max-width: 500px) {
+  a span.navbar-text {
+    display: none; 
+  }
 }
