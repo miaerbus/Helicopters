@@ -8,7 +8,7 @@ var HelicopterSchema = new Schema({
   passengers: { type: Number, min: 0, required: true },
   speed: { type: Number, min: 0, required: true },
   isAvailable: { type: Boolean, default: true },
-  rent: [{ type: Schema.Types.ObjectId, ref: 'Rent' }]
+  rent: [{ type: Schema.Types.ObjectId, ref: 'Rent', required: true }]
 });
 
 // operations before an object is saved

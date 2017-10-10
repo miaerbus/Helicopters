@@ -23,3 +23,8 @@ Start the server
 $ npm start
 ```
 The application should run on port 8888. In your browser, just go to [http://localhost:8888](http://localhost:8888)
+
+Optionally, populate the database with mongoimport
+```bash
+$ mongoimport --db helicopter --collection helicopters --drop --file helicopters.js
+```

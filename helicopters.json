@@ -1,0 +1,33 @@
+{
+    "_id": "59d7896170c7e625548aba2c",
+    "speed": 400,
+    "passengers": 3000,
+    "power": 300,
+    "name": "MI-6",
+    "picture": "test",
+    "__v": 0,
+    "rent": [],
+    "isAvailable": false
+}
+{
+    "_id": "59d7896470c7e625548aba2d",
+    "speed": 400,
+    "passengers": 3000,
+    "power": 300,
+    "name": "MI-7",
+    "picture": "test",
+    "__v": 0,
+    "rent": [],
+    "isAvailable": false
+}
+{
+    "_id": "59db762772f9ee46081af608",
+    "speed": 400,
+    "passengers": 3000,
+    "power": 300,
+    "name": "MI-8",
+    "picture": "test",
+    "__v": 0,
+    "rent": [],
+    "isAvailable": true
+}
