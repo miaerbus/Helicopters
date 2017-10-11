@@ -1,5 +1,5 @@
 # Helicopters
-Rent helicopters 
+Rent helicopters or my attempt at learning MEAN stack. View [SAMPLE APP](https://secret-brook-41447.herokuapp.com/) on Heroku.
 
 ## Installation
 
