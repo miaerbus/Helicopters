@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 app.use(express.static(__dirname + '/public')); // for serving static files, frontend has access to public folder
 app.use('/api', appRoutes); // api for backend routes
 
-mongoose.connect('mongodb://<test>:<test>@ds161833.mlab.com:61833/helicopters', function(err) {
+mongoose.connect('mongodb://test:test@ds161833.mlab.com:61833/helicopters', function(err) {
 //mongoose.connect('mongodb://localhost:27017/helicopter', function(err) {
   if (err) {
     console.log('Not connected to the DB: ' + err);
