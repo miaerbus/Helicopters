@@ -39,12 +39,14 @@ module.exports = function(router) {
     helicopter.passengers = req.body.passengers;
     helicopter.speed = req.body.speed;
     helicopter.isAvailable = req.body.isAvailable;
+    helicopter.rent = req.body.rent;
 
     if (req.body.name == null || req.body.name == '') {
       res.json({ success: false, message: 'Name is missing!' });
     } else {
       helicopter.save(function(err) {
         if (err) {
+          console.log(err);
           res.json({ success: false, message: 'Name already exists!' });
         } else {
           res.json({ success: true, message: 'Helicopter added'});
@@ -63,8 +65,31 @@ module.exports = function(router) {
   // GET HELICOPTER BY ID
   router.get('/helicopters/:helicopterId', function(req, res) {
     Helicopter.findOne({ _id: req.params.helicopterId }, function (err, helicopter) {
-      if (err) return res.send(err)
+      if (err) return res.send(err);
       res.json({ success: true, helicopter: helicopter });
+    });
+  });
+
+  // CHANGE HELICOPTER BY ID
+  router.put('/helicopters/:helicopterId', function(req, res) {
+    Helicopter.findOne({ _id: req.params.helicopterId }, function (err, helicopter) {
+      if (err) return res.send(err);
+      helicopter.isAvailable = req.body.isAvailable;
+      //helicopter.rent.push = req.body.rent;
+      /*helicopter.rent.push({
+        name: req.body.rent.name,
+        duration: req.body.rent.duration,
+        price: req.body.rent.price
+      });*/
+      //if (req.body.name) var newName = req.body.name; // Check if a change to name was requested
+      helicopter.save(function(err) {
+        if (err) {
+          console.log(err);
+          res.json({ success: false, message: 'Name already exists!' });
+        } else {
+          res.json({ success: true, message: 'Helicopter updated'});
+        }
+      });
     });
   });
   

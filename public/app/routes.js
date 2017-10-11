@@ -11,7 +11,7 @@ angular.module('appRoutes', ['ngRoute'])
   })
 
   // doesn't load view if /:helicopterId is before /rent 
-  .when('/rent', {
+  .when('/:helicopterId/rent', {
     templateUrl: 'app/views/helicopters/rent.html',
     controller: 'rentCtrl',
     controllerAs: 'rent'

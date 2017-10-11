@@ -22,7 +22,7 @@ Start the server
 ```bash
 $ npm start
 ```
-The application should run on port 8888. In your browser, just go to [http://localhost:8888](http://localhost:8888)
+The application should run on port 8888. In your browser, just go to [http://localhost:8888](http://localhost:8888).
 
 Optionally, populate the database with mongoimport
 ```bash
