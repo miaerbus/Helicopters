@@ -12,11 +12,11 @@
         <div class="text-center">
         </a>
         <a href="/{{ helicopter._id }}/rent" ng-show="helicopter.isAvailable">
-          <button type="button" class="btn btn-info" ng-submit="rent.rentHelicopter(rentData);">Rent</button>
+          <button type="button" class="my-2 btn btn-info" ng-submit="vm.rentHelicopter(rentData);">Rent</button>
         </a>
-        <a href="/{{ helicopter._id }}/cancel" ng-show="!helicopter.isAvailable">
-          <button type="button" class="btn btn-danger" ng-submit="rent.rentHelicopter(rentData);">Cancel</button>
-        </a>
+        <div ng-show="!helicopter.isAvailable">
+          <button type="button" class="my-2 btn btn-danger" ng-click="vm.cancelHeliopter();">Cancel</button>
+        </div>
       </div>
     </div>
   </div>

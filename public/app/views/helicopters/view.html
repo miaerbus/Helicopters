@@ -1,21 +1,24 @@
 <div class="container" >
   <h1 class="my-4 text-center text-lg-left">{{ vm.helicopter.name | uppercase }}</h1>
   <div class="my-4 row">
-    <div class="col-6">
+    <div class="col-6 col-lg-4">
       <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
     </div>
-    <div class="col-6">
+    <div class="col-6 col-lg-8">
       <p><strong>Power:</strong> {{ vm.helicopter.power }}</p>
       <p><strong>Speed:</strong> {{ vm.helicopter.speed }}</p>
       <p><strong>Passengers:</strong> {{ vm.helicopter.passengers }}</p>
-      <br>
-      <p><strong>History:</strong>{{ vm.helicopter.rent }}</p>
-      <a href="/rent" ng-show="helicopter.isAvailable">
+      <a href="/{{ vm.helicopter._id }}/rent" ng-show="vm.helicopter.isAvailable">
         <button type="button" class="btn btn-info">Rent</button>
       </a>
-      <a href="/cancel" ng-show="!helicopter.isAvailable">
+      <div ng-show="!vm.helicopter.isAvailable">
         <button type="button" class="btn btn-danger">Cancel</button>
-      </a>
+      </div>
+    </div>
+  </div>
+  <div class="my-4 row">
+    <div class="col-12">
+      <p><strong>Purchase history:</strong> {{ vm.helicopter.rents }}</p>
     </div>
   </div>  
 </div>

@@ -14,7 +14,7 @@ angular.module('appRoutes', ['ngRoute'])
   .when('/:helicopterId/rent', {
     templateUrl: 'app/views/helicopters/rent.html',
     controller: 'rentCtrl',
-    controllerAs: 'rent'
+    controllerAs: 'vm'
   })
 
   .when('/:helicopterId', {

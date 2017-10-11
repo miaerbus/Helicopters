@@ -15,12 +15,10 @@ angular.module('rentControllers', ['rentServices', 'helicopterServices'])
         vm.loading = false;
         vm.successMsg = data.data.message + '... Redirecting';
 
-        console.log(vm.rentData);
-
         // Set helicopter to not available, add price to total earnings, add rent to helicopter history
         Helicopter.update($routeParams.helicopterId, { 
           "isAvailable": false,
-          "rent": vm.rentData
+          "rents": vm.rentData
         });
 
         // Redirect to home page with 2 second delay
@@ -33,6 +31,16 @@ angular.module('rentControllers', ['rentServices', 'helicopterServices'])
         vm.errorMsg = data.data.message;
       }
     });
+  };
+
+  vm.cancelHelicopter = function() {
+    console.log("Canceling the rent...");
+
+    // Set helicopter to available, add 500€ for cancelation
+    Helicopter.update($routeParams.helicopterId, { 
+      "isAvailable": true
+    });
+
   };
 });
 

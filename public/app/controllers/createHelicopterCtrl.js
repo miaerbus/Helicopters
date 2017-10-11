@@ -3,6 +3,8 @@ angular.module('createHelicopterController', ['helicopterServices'])
 .controller('createHelicoptersCtrl', function(Helicopter) {
   var vm = this;
 
+  console.log("Creating...!");
+
   vm.createHelicopter = function() {
     vm.loading = true;
     vm.errorMsg = false;

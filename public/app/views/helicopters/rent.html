@@ -2,44 +2,49 @@
 
   <h1 class="my-4 text-center text-lg-left">Rent Helicopter</h1>
 
-  <form name="rentForm" ng-submit="rent.rentHelicopter(rentData);">
+  <form name="rentForm" ng-submit="vm.rentHelicopter(rentData);">
 
     <!-- Name -->
-    <label>First and last name / Organisation:</label>
-    <input class="form-control" type="text" name="name" placeholder="Please enter your name or the name of the organisation" ng-model="rent.rentData.name">
+    <div class="form-group my-4 row">
+      <label class="col-2 col-form-label" for="inputlg">Name</label>
+      <input class="col-10 form-control input-lg" type="text" name="name" placeholder="Please enter your name or the name of the organisation" ng-model="vm.rentData.name">
+    </div>
 
     <!-- Duration -->
-    <label>Duration (in seconds):</label>
-    <input class="form-control" type="number" name="duration" placeholder="Please enter duration of your rent" ng-model="rent.rentData.duration">
+    <div class="form-group my-4 row">
+      <label class="col-2 col-form-label" for="inputlg">Duration (sec)</label>
+      <input class="col-10 form-control input-lg" type="number" name="duration" placeholder="Please enter duration of your rent" ng-model="vm.rentData.duration">
+    </div>
 
-    <label>Price:</label> 
-    <div ng-if="rent.rentData.duration >= 15">
-      <p ng-model="rent.rentData.price">>= 15: {{ rent.rentData.price = rent.rentData.duration*25 }}</p>
-    <!--{{ if (helicopter.duration > 15)
-        helicopter.price = helicopter.duration*25;-->
+    <!-- Price -->
+    <div class="form-group my-4 row">
+      <label class="col-2 col-form-label" for="inputlg">Price</label> 
+      <span class="col-10" ng-if="vm.rentData.duration >= 15">
+        <p ng-model="vm.rentData.price">>= 15: {{ vm.rentData.price = vm.rentData.duration*25 }}</p>
+      <!--{{ if (helicopter.duration > 15)
+          helicopter.price = helicopter.duration*25;-->
+      </span>
+      <span class="col-10" ng-elseif="vm.rentData.duration < 15">
+        <p ng-model="vm.rentData.price">< 15: {{ vm.rentData.price = vm.rentData.duration*20 }}</p>
+        <!--else
+          helicopter.price = helicopter.duration*20; }}-->
+      </span>
     </div>
-    <div ng-elseif="rent.rentData.duration < 15">
-      <p ng-model="rent.rentData.price">< 15: {{ rent.rentData.price = rent.rentData.duration*20 }}</p>
-      <!--else
-        helicopter.price = helicopter.duration*20; }}-->
-    </div>
-    <br>
-    <br>
+
     <button class="btn btn-primary" type="submit">Rent</button>
   </form>
 
-
-  <div class="jumbotron text-center" ng-show="rent.loading">
+  <div class="jumbotron text-center" ng-show="vm.loading">
     <span class="glyphicon glyphicon-repeat spinner"></span>
     <p>Loading...</p>
   </div>
 
-  <div class="row show-hide-message" ng-show="rent.successMsg">
-    <div class="alert alert-success">{{ rent.successMsg }}</div>
+  <div class="row show-hide-message" ng-show="vm.successMsg">
+    <div class="alert alert-success">{{ vm.successMsg }}</div>
   </div>
 
-  <div class="row show-hide-message" ng-show="rent.errorMsg">
-    <div class="alert alert-danger">{{ rent.errorMsg }}</div>
+  <div class="row show-hide-message" ng-show="vm.errorMsg">
+    <div class="alert alert-danger">{{ vm.errorMsg }}</div>
   </div>
 
 </div>
